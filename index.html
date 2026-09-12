@@ -287,6 +287,126 @@ body{width:100%; overflow-x:clip}
   .footer{padding-bottom:max(42px,calc(42px + env(safe-area-inset-bottom)))}
 }
 
+
+/* ===== FINAL MOBILE LAYOUT FIX ===== */
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+*, *::before, *::after { max-width:100%; }
+img, svg { max-width:100%; height:auto; }
+
+@media (max-width: 600px) {
+  html { font-size:16px; }
+  body { min-width:0; overflow-x:hidden; }
+
+  /* Cover: fit the complete invitation inside short phone screens. */
+  .cover {
+    position:fixed;
+    inset:0;
+    width:100%;
+    min-height:100svh;
+    height:100svh;
+    padding:clamp(12px,3.5vh,24px) 12px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    align-items:center;
+  }
+  .cover-inner {
+    width:100%;
+    max-width:420px;
+    padding:0 4px;
+  }
+  .ganesh-wrap {
+    width:clamp(58px,20vw,82px);
+    height:clamp(58px,20vw,82px);
+    margin-bottom:2px;
+  }
+  .salutation { font-size:clamp(11px,3.2vw,13px); margin-bottom:8px; }
+  .cover-inner .ornament { font-size:clamp(13px,4vw,16px); letter-spacing:4px; margin-bottom:5px; }
+  .cover-inner p.invite-line {
+    font-size:clamp(12px,3.7vw,15px);
+    line-height:1.35;
+    margin:0 auto 7px;
+    max-width:330px;
+  }
+  .cover h1 {
+    font-size:clamp(27px,8.5vw,42px);
+    line-height:1;
+    margin:0 0 clamp(10px,2.2vh,16px);
+  }
+  .envelope {
+    width:min(78vw,290px);
+    height:auto;
+    aspect-ratio:3 / 2;
+    margin:0 auto clamp(10px,2.5vh,18px);
+  }
+  .seal { width:clamp(40px,12vw,50px); height:clamp(40px,12vw,50px); font-size:18px; }
+  .open-btn { padding:9px 20px; font-size:12px; letter-spacing:1.7px; }
+
+  /* Hero artwork must never overflow the phone viewport. */
+  .hero {
+    width:100%;
+    min-height:100svh;
+    padding:24px 12px 42px;
+    overflow:hidden;
+  }
+  .hero-frame {
+    width:min(86vw,360px);
+    max-width:100%;
+    margin-inline:auto;
+  }
+  .hero-text { top:5%; left:11%; width:78%; }
+  .hero-text .kicker-bn { font-size:clamp(10px,3vw,13px); }
+  .hero-text .names { font-size:clamp(20px,6.8vw,32px); }
+  .hero-text .date { font-size:clamp(9px,2.8vw,12px); letter-spacing:1.4px; }
+  .hero-below { width:100%; max-width:100%; margin-top:22px; padding-inline:4px; }
+  .message { font-size:clamp(15px,4.5vw,19px); line-height:1.55; overflow-wrap:anywhere; }
+  .scroll { margin-top:18px; font-size:10px; letter-spacing:2px; }
+
+  /* Every content section gets a true mobile width. */
+  .page { width:100%; min-height:auto; padding:42px 12px; overflow:hidden; }
+  .section { width:100%; max-width:100%; }
+  .card {
+    width:100%;
+    max-width:100%;
+    padding:26px 16px;
+    overflow:hidden;
+    overflow-wrap:anywhere;
+  }
+  .section h2 { font-size:clamp(27px,7.8vw,36px); line-height:1.08; }
+  .garland-divider { gap:5px; margin:20px auto; }
+  .garland-divider svg { width:min(32vw,110px); }
+  .venue { font-size:clamp(20px,6.2vw,27px); line-height:1.2; overflow-wrap:anywhere; }
+  .sub { font-size:10px; letter-spacing:1.4px; }
+  .map-btn { max-width:100%; width:auto; padding:11px 17px; }
+  .qr { width:min(62vw,210px); padding:8px; }
+  .note { max-width:100%; overflow-wrap:anywhere; }
+  .moments-frame { width:min(72vw,280px); max-width:100%; }
+  .toran { width:calc(100% - 24px); max-width:100%; }
+  .mandala-watermark { width:125vw; height:125vw; max-width:none; }
+  .footer { width:100%; padding:48px 14px 38px; overflow:hidden; }
+
+  /* Prevent decorative absolutely-positioned elements from creating a scroll width. */
+  .sparkle, .petal, .mandala-watermark { pointer-events:none; }
+}
+
+@media (max-width: 360px) {
+  .cover { padding-inline:8px; }
+  .cover-inner { padding-inline:2px; }
+  .envelope { width:min(80vw,270px); }
+  .hero { padding-inline:8px; }
+  .hero-frame { width:88vw; }
+  .page { padding-inline:8px; }
+  .card { padding-inline:13px; }
+  .section h2 { font-size:27px; }
+}
+
+@media (max-height: 700px) and (max-width: 600px) {
+  .cover { align-items:start; }
+  .cover-inner { margin-block:auto; }
+  .ganesh-wrap { width:58px; height:58px; }
+  .salutation { margin-bottom:5px; }
+  .cover h1 { margin-bottom:8px; }
+  .envelope { width:min(68vw,250px); margin-bottom:8px; }
+}
 </style>
 </head>
 <body>
